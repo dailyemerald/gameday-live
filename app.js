@@ -71,7 +71,7 @@
 		if (item.type === "instagram") {
 			//console.log('process new item got item.data for isntagram:',item.data);
 			cleanedItem = {
-				image: item.data.images.low_resolution.url,
+				image: item.data.images.standard_resolution.url,
 				thumb: item.data.user['profile_picture'],
 				title: item.data.user.full_name,
 				comment: "&nbsp;\n",

@@ -1,9 +1,12 @@
+html, body { overflow: hidden; height: 100% }
+  
 body {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
 	margin: 0;
 	padding: 0;
+  font-size: 13px;
 	box-sizing: border-box;
 }
 h2 {
@@ -11,10 +14,13 @@ h2 {
 	padding: 0;
 	font-size: 17px;
 }
+a, a:visited {
+  color: #004F27;
+  text-decoration: underline;
+}
 #wrapper {
 	width: 100%;
 	height: 100%;
-	overflow: scroll;
 }
 img {
   max-width: 100%;
@@ -28,9 +34,10 @@ img {
 	width: 25%;
 	height: 100%;
 	float: left;
-	min-width: 250px;
+	min-width: 190px;
 }
 .column-header {
+  
 	color: #FFF;
 	font-family: "Exo";
 	background: #B2D234;
@@ -40,15 +47,42 @@ img {
 	padding-right: 10px;
 	border-right: 1px solid #FFF;
 }
-.column-inner {
-	height: 100%;
-	overflow: scroll;
+
+.column-header-last {
+  border-right: 0;
 }
 
+.column-inner {
+	overflow: scroll;
+  height: 100%;
+  padding: 5px;
+}
 
+li {
+    list-style-type: none;
+}
 
+.chat li {
+  margin: 0;
+  padding: 10px 0;
+  border-bottom: 1px solid #CCC;
+}
 
+.story {
+  border-bottom: 1px solid #CCC;
+  margin-top: 5px;
+  padding-bottom: 5px;
+}
+.story a {
+  text-decoration: none;
+  font-size: 17px;
+  line-height: 17px;
+}
 
+input, textarea {
+  width: 100%;
+  margin-bottom: 5px;
+}
 
 .feed {
 /*   background: #c1c1c1; */
@@ -58,18 +92,9 @@ img {
   width: 100%; /*300px; */
 }
 .feed li {
-/*   background: #f5f5f5 url('../images/news-bg.png') repeat-x left bottom; */
-  background: -webkit-linear-gradient(top, #f6f6f6 0%,#f0f0f0 100%);
-  background-size: 100%;
-  border-bottom: 1px solid #dedede;
-  border-top: 1px solid #fbfbfb;
-  float: left;
   min-height: 78px;
   padding: 0 10px;
   position: relative;
-  /*width: 280px;*/
-}
-.home .feed li {
   padding-bottom: 10px;
 }
 
@@ -79,18 +104,13 @@ img {
   height: auto;
   position: absolute;
   top: 13px;
-  width: 63px;
+  width: 50px;
 }
 .feed h2 {
-  line-height: 17.03px;
-  float: left;
-  font-size: 13.625px;
+
 }
 .feed li a {
   color: #2a2a2a;
-  float: left;
-  padding: 12px 20px 1.25em 78px;
-  width: 190px;
 }
 .feed .time {
   color: #8e8e8e;
@@ -98,8 +118,24 @@ img {
   position: relative;
   width: 30px;
 }
-.home .feed .time {
+.feed .time {
   left: 78px;
-  margin-top: -2.5em;
   top: 0;
+}
+
+#footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  color: #FFF;
+  font-family: "Exo";
+  font-size: 14px;
+  background: #B2D234;
+  opacity: 0.9;
+} 
+#footer a {
+  padding: 3px;
+  margin: 5px;
+  text-decoration: none;
+  color: white;
 }

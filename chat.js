@@ -18,6 +18,7 @@
 
 	var prepare = function(message) {
 		message.human_time = moment(message.created_at.iso).calendar();
+		message.text = message.text.autoLink({ target: "_blank", rel: "nofollow" });
 		return message;
 	}
 

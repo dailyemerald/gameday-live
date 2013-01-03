@@ -23,7 +23,7 @@
 	</script>
 
 	<script id="tplStory" type="text/x-handlebars-template">
-		<li>
+		<li class="story">
 			<a href="{{permalink}}" target="_blank"><img src="{{thumbnail}}" class="thumb" /></a>
 			<h2><a href="{{permalink}}" target="_blank">{{{title}}}</a></h2>
 			<p class="time">{{date}}</p>
@@ -42,15 +42,7 @@
 			</div>
 			<div id="twitter" class="column-inner feed">
 				<!-- stub -->
-			</div>
-		</section>
-		
-		<section class="column instagram-wrapper">
-			<div class="column-header instagram-header">
-				<h2>INSTAGRAM</h2>
-			</div>
-			<div id="instagram" class="column-inner feed">
-				<!-- stub -->
+				
 			</div>
 		</section>
 		
@@ -67,7 +59,7 @@
 				<textarea id="message-text" type="text" placeholder="Post something..."></textarea>
 				<button type="submit" id="message-send">Send</button>
 
-				<div id="chat-status">Waiting for server...</div>
+				<div id="chat-status">Connecting to server...</div>
 				<ul id="chat-messages">
 				</ul>
 
@@ -75,14 +67,29 @@
 
 		</section>
 
+		<section class="column instagram-wrapper">
+			<div class="column-header instagram-header">
+				<h2>INSTAGRAM</h2>
+			</div>
+			<div id="instagram" class="column-inner feed">
+				<!-- stub -->
+				
+			</div>
+		</section>
+		
 		<section class="column story-wrapper column-last">
-			<div class="column-header story-header">
+			<div class="column-header story-header column-header-last">
 				<h2>STORIES</h2>
 			</div>
 			<div class="column-inner">
 				<ul class="story-list"></ul>
 			</div>
 		</section>
+
+		<div id="footer">
+			<a href="/about">ABOUT</a>
+			<a href="/normal">NORMAL HOMEPAGE</a>
+		</div>
 
 	</div>
 
