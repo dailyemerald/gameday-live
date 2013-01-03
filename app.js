@@ -125,8 +125,9 @@
 	        );
 	}
 	var guid = GUID();
+	var url_base = "http://fathomless-fjord-4295.herokuapp.com/metric";
 
-	setInterval(function() {
+	var send_metrics = function() {
 		var time_on_site = parseInt((new Date() - window.load_start)/1000);
 		var counts = {
 			'instagram': $(".instagram").length, 
@@ -134,14 +135,26 @@
 			'chats': $("#chat-messages").find("li").length,
 			'time_on_site': time_on_site,
 			'guid': guid,
-			'version': 1
+			'version': 1,
+			'width': window.innerWidth,
 		}	
-		$.get('ajax/test.html', function(data) {
-  			$('.result').html(data);
-  			alert('Load was performed.');
+		counts = JSON.stringify(counts);
+		$.ajax({
+     		url: url_base+"?data="+counts,
+     		dataType: 'jsonp', 
+     		success:function(json){
+     		},
+     		error:function(){ 
+   			},
 		});
+	}
+	setInterval(function() {
+		send_metrics();
 	}, 10000);
+	send_metrics();
+
 })();
+
 
 (function() {
   var autoLink,
