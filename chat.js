@@ -1,14 +1,10 @@
 (function() {
 
 	var chat_socket = io.connect("http://cht.herokuapp.com", {'force new connection': true});
-	console.log(chat_socket, "cht.herokuapp")
-	var textTemplate = "" +
-	"<li class='message'>" +
-	"<%= text %><br>" +
-	"<small><%= human_time.toLowerCase() %> by <%= name %></small>" + 
-	"</li>";
+	console.log(chat_socket, "cht.herokuapp");
 
-	var tpl = _.template(textTemplate);
+	var tplChat = Handlebars.compile($('#tplChat').html()); 
+	var tplChatAdmin = Handlebars.compile($('#tplChatAdmin').html()); 
 
 	var strip = function (html) {
 	   var tmp = document.createElement("DIV");
@@ -19,8 +15,17 @@
 	var prepare = function(message) {
 		message.human_time = moment(message.created_at.iso).calendar();
 		message.text = message.text.autoLink({ target: "_blank", rel: "nofollow" });
-		return message;
+
+		var html = "";
+		if (message.admin === true) {
+			html = tplChatAdmin(message);
+		} else {
+			html = tplChat(message);
+		}
+		return html;
 	}
+
+
 
 	chat_socket.on('status', function (data) {
 		console.log('chat status:', data);
@@ -30,13 +35,13 @@
 	chat_socket.on('backlog', function(data) {
 		console.log('parse (chat) backlog', data);
 		_.each(data, function(data) {
-			$('#chat-messages').append( tpl(prepare(data)) );
+			$('#chat-messages').append( prepare(data) );
 		});
 	});
 
 	chat_socket.on('broadcast_message', function(data) {
 		console.log('broadcast_message', data);
-		$("#chat-messages").prepend( tpl(prepare(data)) );
+		$("#chat-messages").prepend( prepare(data) );
 	});
 
 	var send_message = function() {
@@ -47,10 +52,11 @@
 
 		if (text.length > 0 && name.length > 0) {
 			chat_socket.emit('send_message', {'name': name, 'text': text});
+			mixpanel.track("GameDay Live - Sent Message");
 			$('#message-text').val('');
 			$('#chat-status').html('');
 		} else {
-			$('#chat-status').html('Name and message, please!');
+			$('#chat-status').html('Name *and* message, please!');
 		}
 	}
 

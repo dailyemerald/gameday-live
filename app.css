@@ -9,6 +9,7 @@ body {
   font-size: 13px;
 	box-sizing: border-box;
 }
+
 h2 {
 	margin: 0;
 	padding: 0;
@@ -36,6 +37,11 @@ img {
 	float: left;
 	min-width: 190px;
 }
+
+.message-admin p {
+  font-weight: bold;
+}
+
 .column-header {
   
 	color: #FFF;
@@ -58,6 +64,9 @@ img {
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
+.column-inner > * {
+    -webkit-transform: translateZ(0px);
+}
 
 li {
     list-style-type: none;
@@ -71,7 +80,7 @@ li {
 
 .story {
   border-bottom: 1px solid #CCC;
-  margin-top: 5px;
+  margin-bottom: 5px;
   padding-bottom: 5px;
 }
 .story a {
@@ -90,13 +99,11 @@ input, textarea {
 /*   border-bottom: 1px solid rgba(0, 0, 0, 0.2); */
  /* box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.6); */
   position: relative;
-  width: 100%; /*300px; */
+  
 }
 .feed li {
   min-height: 78px;
-  padding: 0 10px;
   position: relative;
-  padding-bottom: 10px;
 }
 
 .feed .thumb {
@@ -107,6 +114,14 @@ input, textarea {
   top: 13px;
   width: 50px;
 }
+
+.tweet {
+  padding-left: 55px;
+}
+.tweet img {
+  margin-left: -55px;
+}
+
 .feed h2 {
 
 }
@@ -135,6 +150,7 @@ input, textarea {
   opacity: 0.9;
 } 
 #footer a {
+  display: inline-block;
   padding: 3px;
   margin: 5px;
   text-decoration: none;

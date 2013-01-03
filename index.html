@@ -13,10 +13,24 @@
 		</li>
 	</script>
 	
+	<script id="tplChat" type="text/html">	
+		<li class='message'>
+			<p>{{ text }}</p>
+			<small>{{ human_time }} by {{ name }}</small>
+		</li>
+	</script>
+
+	<script id="tplChatAdmin" type="text/html">	
+		<li class='message-admin'>
+			<p>{{ text }}</p>
+			<small>{{ human_time }} by {{ name }}</small>
+		</li>
+	</script>
+
 	<script id="tplInstagram" type="text/x-handlebars-template">
 		<li class="instagram">
 			<img src="{{{image}}}" class="insta-img" />
-			<img src="{{{thumb}}}" class="thumb" />
+			<!--<img src="{{{thumb}}}" class="thumb" />-->
 			<h2 class="instagram-title">{{title}}</h2>
 			<span href="#" class="instagram-comment">{{comment}}</span>
 			<time class="time" datetime="{{time}}"></p>
@@ -118,6 +132,21 @@
 	    var s = document.getElementsByTagName('script')[0];
 	    s.parentNode.insertBefore(wf, s);
 	  })(); 
+	</script>
+
+	<script type="text/javascript">
+    (function(c,a){window.mixpanel=a;var b,d,h,e;b=c.createElement("script");
+    b.type="text/javascript";b.async=!0;b.src=("https:"===c.location.protocol?"https:":"http:")+
+    '//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';d=c.getElementsByTagName("script")[0];
+    d.parentNode.insertBefore(b,d);a._i=[];a.init=function(b,c,f){function d(a,b){
+    var c=b.split(".");2==c.length&&(a=a[c[0]],b=c[1]);a[b]=function(){a.push([b].concat(
+    Array.prototype.slice.call(arguments,0)))}}var g=a;"undefined"!==typeof f?g=a[f]=[]:
+    f="mixpanel";g.people=g.people||[];h=['disable','track','track_pageview','track_links',
+    'track_forms','register','register_once','unregister','identify','alias','name_tag',
+    'set_config','people.set','people.increment'];for(e=0;e<h.length;e++)d(g,h[e]);
+    a._i.push([b,c,f])};a.__SV=1.2;})(document,window.mixpanel||[]);
+    mixpanel.init("6430a27843701ed6a70443f0b7ee4eff");
+    mixpanel.track("GameDay Live");
 	</script>
 
 </body>

@@ -40,7 +40,7 @@
 		});
 	});
 
-	socket.emit('hello', {}); // this tells the server to make a new build set and send it with the 'rebuild' event below:		
+	//socket.emit('hello', {}); // this tells the server to make a new build set and send it with the 'rebuild' event below:		
 
 	socket.on('newItem', function(item) {		
 		processNewItem( strdecode(item) );
@@ -54,12 +54,12 @@
 	window.lifetimeDupes = 0;
 
 	var processNewItem = function(item) {
-		console.log('processNewItem', item)
+		//console.log('processNewItem', item)
 		if (typeof item.d_id != "undefined") {
 			if (window.itemsAlreadyHere[item.d_id] === true) {
 				window.lifetimeDupes += 1
 				//socket.emit("dupeItem", {d_id: item.d_id, lifetimeDupes: window.lifetimeDupes});		
-				console.log("dupe for", d_id);
+				console.log("dupe for", item.d_id);
 				return false;
 			} else {
 				window.itemsAlreadyHere[item.d_id] = true;
