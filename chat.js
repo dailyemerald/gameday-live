@@ -46,7 +46,7 @@
 
 		if (text.length > 0 && name.length > 0) {
 			chat_socket.emit('send_message', {'name': name, 'text': text});
-			$('#chat-message').val('');
+			$('#message-text').val('');
 			$('#chat-status').html('');
 		} else {
 			$('#chat-status').html('Name and message, please!');
