@@ -16,9 +16,8 @@
 		console.log("stories:", data);
 
 	    data.forEach(function(story){
-			story.timestamp = moment( story.date.split(" ").join("T") + "-07:00" );
-			story.date = 'placeholder'; //story.timestamp.format("dddd, MMMM Do") + " at " + story.timestamp.format("h:mm a");
-			
+			story.timestamp = moment( story.date.split(" ").join("T") + "-08:00" );
+			story.date = story.timestamp.format("dddd, MMMM Do") + " at " + story.timestamp.format("h:mm a");
 			$(".story-list").append(template(story));		
 		});	
 	

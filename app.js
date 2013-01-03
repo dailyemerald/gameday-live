@@ -65,7 +65,7 @@
 				window.itemsAlreadyHere[item.d_id] = true;
 			}
 		} else {
-			console.log("no d_id property on incoming item!", item);
+			//console.log("no d_id property on incoming item!", item);
 		}
 		
 		if (item.type === "instagram") {
@@ -107,6 +107,42 @@
 
 })();
 
+
+(function() {
+	function GUID () {
+	    var S4 = function () {
+	        return Math.floor(
+	                Math.random() * 0x10000 /* 65536 */
+	            ).toString(16);
+	    };
+
+	    return (
+	            S4() + S4() + "-" +
+	            S4() + "-" +
+	            S4() + "-" +
+	            S4() + "-" +
+	            S4() + S4() + S4()
+	        );
+	}
+	var guid = GUID();
+
+	setInterval(function() {
+		var time_on_site = parseInt((new Date() - window.load_start)/1000);
+		var counts = {
+			'instagram': $(".instagram").length, 
+			'twitter':  $(".tweet").length,
+			'chats': $("#chat-messages").find("li").length,
+			'time_on_site': time_on_site,
+			'guid': guid,
+			'version': 1
+		}	
+		$.get('ajax/test.html', function(data) {
+  			$('.result').html(data);
+  			alert('Load was performed.');
+		});
+	}, 10000);
+})();
+
 (function() {
   var autoLink,
     __slice = [].slice;
@@ -135,7 +171,5 @@
       return "" + space + link;
     });
   };
-
   String.prototype['autoLink'] = autoLink;
-
 }).call(this);	

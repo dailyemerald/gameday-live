@@ -1,7 +1,7 @@
 (function() {
 
 	var chat_socket = io.connect("http://cht.herokuapp.com", {'force new connection': true});
-	console.log(chat_socket, "cht.herokuapp");
+	//console.log(chat_socket, "cht.herokuapp");
 
 	var tplChat = Handlebars.compile($('#tplChat').html()); 
 	var tplChatAdmin = Handlebars.compile($('#tplChatAdmin').html()); 

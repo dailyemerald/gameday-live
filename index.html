@@ -4,6 +4,8 @@
 	<link rel="stylesheet" type="text/css" href="base.css">
 	<link rel="stylesheet" type="text/css" href="app.css">
 
+	<script>window.load_start = new Date();</script>
+
 	<script id="tplTwitter" type="text/html">	
 		<li class="tweet">
 			<img src="{{{thumbnail}}}" class="thumb" />
@@ -61,6 +63,16 @@
 			</div>
 		</section>
 		
+		<section class="column instagram-wrapper">
+			<div class="column-header instagram-header">
+				<h2>INSTAGRAM</h2>
+			</div>
+			<div id="instagram" class="column-inner feed">
+				<!-- stub -->
+				
+			</div>
+		</section>
+
 		<section class="column chat-wrapper">
 			<div class="column-header chat-header">
 				<h2>CHAT</h2>
@@ -82,15 +94,7 @@
 
 		</section>
 
-		<section class="column instagram-wrapper">
-			<div class="column-header instagram-header">
-				<h2>INSTAGRAM</h2>
-			</div>
-			<div id="instagram" class="column-inner feed">
-				<!-- stub -->
-				
-			</div>
-		</section>
+		
 		
 		<section class="column story-wrapper column-last">
 			<div class="column-header story-header column-header-last">
@@ -109,16 +113,15 @@
 	</div>
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script src="http://footballapp.dailyemerald.com/v0.9/js/handlebars.min.js"></script>
-	<script src="socket.io.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.rc.1/handlebars.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.2/underscore-min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/1.7.2/moment.min.js"></script>
-
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js"></script>
+	
 	<script src="app.js"></script>
 	<script src="chat.js"></script>
 	<script src="stories.js"></script>
 
-	<!-- load Exo -->
 	<script type="text/javascript">
 	  WebFontConfig = {
 	    google: { families: [ 'Exo:700:latin' ] }
