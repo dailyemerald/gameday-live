@@ -53,9 +53,10 @@ img {
 }
 
 .column-inner {
-	overflow: scroll;
   height: 100%;
   padding: 5px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 li {
