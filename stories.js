@@ -13,7 +13,7 @@
 	  url: endpoint+"/json/?callback=?",
 	  dataType: 'jsonp',
 	  success: function(data){
-		console.log("stories:", data);
+		//console.log("stories:", data);
 
 	    data.forEach(function(story){
 			story.timestamp = moment( story.date.split(" ").join("T") + "-08:00" );

@@ -28,19 +28,19 @@
 
 
 	chat_socket.on('status', function (data) {
-		console.log('chat status:', data);
+		//console.log('chat status:', data);
 		$('#chat-status').html(data);
 	});
 
 	chat_socket.on('backlog', function(data) {
-		console.log('parse (chat) backlog', data);
+		//console.log('parse (chat) backlog', data);
 		_.each(data, function(data) {
 			$('#chat-messages').append( prepare(data) );
 		});
 	});
 
 	chat_socket.on('broadcast_message', function(data) {
-		console.log('broadcast_message', data);
+		//console.log('broadcast_message', data);
 		$("#chat-messages").prepend( prepare(data) );
 	});
 
@@ -69,7 +69,7 @@
 	    });
 		*/
 		$('#message-send').click(function() {	
-			console.log("#message-send click");
+			//console.log("#message-send click");
 			send_message();
 		});
 	});

@@ -19,9 +19,9 @@
 	});
 
 	socket.on('rebuild', function(items) { 
-		console.log('rebuild', items);
+		//console.log('rebuild', items);
 		try {
-		  console.log('rebuild', items);
+		  //console.log('rebuild', items);
 		  var itemsLength = items.length;
 		  for (var i=0; i<itemsLength; i++) {
 			var idx = itemsLength - i - 1;
@@ -29,7 +29,7 @@
 			processNewItem( items[idx] );
 		  }		
 		} catch (error) {
-			console.log('error', error)
+			//console.log('error', error)
 		    //socket.emit('error', JSON.stringify(error));
 		}
 	});
@@ -95,14 +95,14 @@
 			//itemsToShow.push( tplTwitter(item.data) );
 
 		} else {
-			console.log("unknown item type");
+			//console.log("unknown item type");
 		}
 	}
 
-	console.log(socket.emit('pull'), 'pull');
+	socket.emit('pull');
 
 	$(document).ready(function() {
-		console.log("app.js: document ready.");			 
+		//console.log("app.js: document ready.");			 
 	});
 
 })();
