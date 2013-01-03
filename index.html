@@ -1,0 +1,116 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="base.css">
+	<link rel="stylesheet" type="text/css" href="app.css">
+
+	<script id="tplTwitter" type="text/html">	
+		<li class="tweet">
+			<img src="{{{thumbnail}}}" class="thumb" />
+			<h2 class="tweet-title">{{{title}}}</h2>
+			<span class="tweet-content">{{{content}}}</span>
+			<time class="time" datetime="{{iso_time}}"></p>
+		</li>
+	</script>
+	
+	<script id="tplInstagram" type="text/x-handlebars-template">
+		<li class="instagram">
+			<img src="{{{image}}}" class="insta-img" />
+			<img src="{{{thumb}}}" class="thumb" />
+			<h2 class="instagram-title">{{title}}</h2>
+			<span href="#" class="instagram-comment">{{comment}}</span>
+			<time class="time" datetime="{{time}}"></p>
+		</li>
+	</script>
+
+	<script id="tplStory" type="text/x-handlebars-template">
+		<li>
+			<a href="{{permalink}}" target="_blank"><img src="{{thumbnail}}" class="thumb" /></a>
+			<h2><a href="{{permalink}}" target="_blank">{{{title}}}</a></h2>
+			<p class="time">{{date}}</p>
+		</li>
+  </script>
+
+</head>
+<body>
+	<div id="wrapper">
+		<div class="logo">
+			<img src="logo.png" />
+		</div>
+		<section class="column twitter-wrapper">
+			<div class="column-header twitter-header">
+				<h2>#GODUCKS</h2>
+			</div>
+			<div id="twitter" class="column-inner feed">
+				<!-- stub -->
+			</div>
+		</section>
+		
+		<section class="column instagram-wrapper">
+			<div class="column-header instagram-header">
+				<h2>INSTAGRAM</h2>
+			</div>
+			<div id="instagram" class="column-inner feed">
+				<!-- stub -->
+			</div>
+		</section>
+		
+		<section class="column chat-wrapper">
+			<div class="column-header chat-header">
+				<h2>CHAT</h2>
+			</div>
+			<div class="game-score">
+				<!-- stub -->
+			</div>
+			<div class="column-inner chat">
+				<input id="message-name" type="text" placeholder="What's your name?"></input>
+      
+				<textarea id="message-text" type="text" placeholder="Post something..."></textarea>
+				<button type="submit" id="message-send">Send</button>
+
+				<div id="chat-status">Waiting for server...</div>
+				<ul id="chat-messages">
+				</ul>
+
+			</div><!-- .column-inner -->
+
+		</section>
+
+		<section class="column story-wrapper column-last">
+			<div class="column-header story-header">
+				<h2>STORIES</h2>
+			</div>
+			<div class="column-inner">
+				<ul class="story-list"></ul>
+			</div>
+		</section>
+
+	</div>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://footballapp.dailyemerald.com/v0.9/js/handlebars.min.js"></script>
+	<script src="socket.io.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.2/underscore-min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/1.7.2/moment.min.js"></script>
+
+	<script src="app.js"></script>
+	<script src="chat.js"></script>
+	<script src="stories.js"></script>
+
+	<!-- load Exo -->
+	<script type="text/javascript">
+	  WebFontConfig = {
+	    google: { families: [ 'Exo:700:latin' ] }
+	  };
+	  (function() {
+	    var wf = document.createElement('script');
+	    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+	      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+	    wf.type = 'text/javascript';
+	    wf.async = 'true';
+	    var s = document.getElementsByTagName('script')[0];
+	    s.parentNode.insertBefore(wf, s);
+	  })(); 
+	</script>
+
+</body>
+</html>
