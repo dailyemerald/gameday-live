@@ -82,7 +82,8 @@
 			}
 			//console.log(item.data);
 		    //$("#loadingzone").append( tplImagePreloader({image: item.data.images.low_resolution.url}) );
-			$("#instagram").prepend( tplInstagram(cleanedItem) );
+			//$("#instagram").prepend(  );
+			$(tplInstagram(cleanedItem)).hide().prependTo("#instagram").slideDown(250);
 			//itemsToShow.push( tplInstagram(cleanedItem) );
 			
 			
@@ -91,7 +92,9 @@
 		    //$("#loadingzone").append(tplImagePreloader({image:item.data.thumbnail}));
 			//console.log('new tweet...', item)
 			item.data.content = item.data.content.autoLink({ target: "_blank", rel: "nofollow" });
-			$("#twitter").prepend( tplTwitter(item.data) );
+			var li = $(tplTwitter(item.data));
+			//console.log(li);
+			li.hide().prependTo("#twitter-ul").slideDown(250);
 			//itemsToShow.push( tplTwitter(item.data) );
 
 		} else {
@@ -99,10 +102,11 @@
 		}
 	}
 
-	socket.emit('pull');
+	
 
 	$(document).ready(function() {
-		//console.log("app.js: document ready.");			 
+		//console.log("app.js: document ready.");
+		socket.emit('pull');			 
 	});
 
 })();
@@ -155,7 +159,6 @@
 
 })();
 
-
 (function() {
   var autoLink,
     __slice = [].slice;
@@ -186,3 +189,16 @@
   };
   String.prototype['autoLink'] = autoLink;
 }).call(this);	
+
+(function() {
+  var key = "0As1Yq-MxSBt2dDRjVHlSWHROazMwWWtETGsycnA5TWc"
+  var update_scores = function(data, tabletop) { 
+  	$('.oregon-score').html( data[0]['oregon'] );
+  	$('.kstate-score').html( data[0]['kstate'] );
+  }
+  var update_data = function() {
+  	Tabletop.init({ key: key, callback: update_scores, simpleSheet: true });
+  }
+  update_data();
+  setInterval(update_data, 2500);
+})();
