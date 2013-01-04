@@ -100,6 +100,21 @@
 		} else {
 			//console.log("unknown item type");
 		}
+
+		var twitter_len = $("#twitter-ul").children().length;
+		var instagram_len = $("#instagram").children().length;
+		var max_items = 150;
+		if (twitter_len > max_items) {
+			for(var i=max_items;i<twitter_len;i++) {
+				$( $("#twitter-ul").children()[i] ).remove();
+			}
+		}
+		if (instagram_len > max_items) {
+			for(var i=max_items;i<instagram_len;i++) {
+				$( $("#instagram").children()[i] ).remove();
+			}
+		}
+
 	}
 
 	
